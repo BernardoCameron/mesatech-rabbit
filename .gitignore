@@ -1,0 +1,11 @@
+# Credenciales
+.env
+
+# Datos locales de RabbitMQ
+data/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
