@@ -10,14 +10,6 @@ data/
 .DS_Store
 Thumbs.db
 
-# Claude / asistentes de IA (instrucciones y configuracion local)
-CLAUDE.md
-CLAUDE.local.md
-AGENTS.md
-.claude/
-.agents/
-.cursor/
-.taste-skill/
 
 # Llaves y credenciales
 *.pem
