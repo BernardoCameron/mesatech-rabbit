@@ -9,3 +9,16 @@ data/
 .vscode/
 .DS_Store
 Thumbs.db
+
+
+# Llaves y credenciales
+*.pem
+*.key
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Script local para configurar RabbitMQ rapido (los pasos van documentados a mano en el README)
+scripts/

@@ -1,0 +1,28 @@
+# RabbitMQ de MesaTech Cloud (imagen oficial, sin construir una propia).
+# Credenciales en .env (no se sube). Recursos (vhost, usuarios, exchange, cola) con scripts/configurar.sh.
+services:
+  rabbitmq:
+    # Etiqueta explicita que incluye la interfaz de administracion (-management)
+    image: rabbitmq:4.1-management
+    container_name: mesatech-rabbitmq
+    # El nombre del nodo se guarda en el volumen: con otro hostname el broker no encontraria sus datos
+    hostname: mesatech-rabbit
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    ports:
+      # 5672: AMQP (las aplicaciones). 15672: panel de administracion
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      # Datos del broker: mensajes pendientes, colas y usuarios sobreviven a recrear el contenedor
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+volumes:
+  rabbitmq_data:
