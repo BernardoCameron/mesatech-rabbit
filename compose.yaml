@@ -1,5 +1,5 @@
 # RabbitMQ de MesaTech Cloud (imagen oficial, sin construir una propia).
-# Credenciales en .env (no se sube). Recursos (vhost, usuarios, exchange, cola) con scripts/configurar.sh.
+# Credenciales en .env (no se sube). Los recursos (vhost, usuarios, exchange, cola) se crean desde el panel, ver README.
 services:
   rabbitmq:
     # Etiqueta explicita que incluye la interfaz de administracion (-management)
